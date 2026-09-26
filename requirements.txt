@@ -1,0 +1,25 @@
+# AI / API
+google-genai>=0.8.0
+notion-client>=2.2.1
+
+# 環境設定・Webサーバー
+python-dotenv>=1.0.0
+flask>=3.0.0
+gunicorn>=21.0.0
+line-bot-sdk>=3.0.0
+
+# 画像生成（モック表示）
+Pillow>=10.0.0
+
+# 音声入出力（本番用 - PC環境ではコンソールフォールバック）
+SpeechRecognition>=3.10.0
+gTTS>=2.5.0
+playsound==1.2.2
+# PyAudio は環境に依存するため手動インストール推奨:
+# Windows: pip install pipwin && pipwin install pyaudio
+# Linux/Mac: pip install pyaudio
+# pyaudio>=0.2.13
+
+# Raspberry Pi 本番用（PC環境ではインストール不要）
+# RPi.GPIO>=0.7.1
+# waveshare-epaper (手動インストール: https://github.com/waveshare/e-Paper)
