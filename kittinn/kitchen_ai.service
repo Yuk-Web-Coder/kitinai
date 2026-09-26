@@ -1,0 +1,37 @@
+[Unit]
+Description=KitchenAI - Kitchen Inventory & Recipe AI
+Documentation=https://github.com/your-repo/kitchen-ai
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=pi
+Group=pi
+WorkingDirectory=/home/pi/kitchen_ai
+
+# Python 仮想環境を使う場合:
+# ExecStart=/home/pi/kitchen_ai/venv/bin/python /home/pi/kitchen_ai/main.py
+
+# システム Python を使う場合:
+ExecStart=/usr/bin/python3 /home/pi/kitchen_ai/main.py
+
+# 標準出力/エラーをジャーナルログへ
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=kitchen_ai
+
+# プロセス停止時は自動再起動（5秒後）
+Restart=always
+RestartSec=5
+
+# タイムアウト設定
+TimeoutStartSec=60
+TimeoutStopSec=10
+
+# 環境変数（.env ファイルはコード側で読み込む）
+# 本番では MOCK_MODE=False に設定することを確認
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=multi-user.target
